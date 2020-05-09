@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/screens/orders_screen.dart';
-import 'package:shop_app/screens/user_product_screen.dart';
+import '../screens/user_products_screen.dart';
+
+import '../screens/orders_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -8,32 +9,36 @@ class AppDrawer extends StatelessWidget {
     return Drawer(
       child: Column(
         children: <Widget>[
-          AppBar(title: Text('Welcome Our Friend !'), automaticallyImplyLeading: false,
+          AppBar(
+            title: Text('Hello Friend!'),
+            automaticallyImplyLeading: false,
           ),
           Divider(),
           ListTile(
             leading: Icon(Icons.shop),
             title: Text('Shop'),
-            onTap: (){
-              Navigator.pushReplacementNamed(context, '/');
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed('/');
             },
           ),
-           Divider(),
+          Divider(),
           ListTile(
             leading: Icon(Icons.payment),
             title: Text('Orders'),
-            onTap: (){
-              Navigator.pushReplacementNamed(context, OrdersScreen.routeName);
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(OrdersScreen.routeName);
             },
           ),
-           Divider(),
+          Divider(),
           ListTile(
             leading: Icon(Icons.edit),
-            title: Text('Mange Products'),
-            onTap: (){
-              Navigator.pushReplacementNamed(context, UserProductScreen.routeName);
+            title: Text('Manage Products'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(UserProductsScreen.routeName);
             },
-          )
+          ),
         ],
       ),
     );
